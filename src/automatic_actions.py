@@ -11,11 +11,12 @@ def check_for_free_card(tabletop):
                 stack.pop(-1)
     return tabletop
 
+
 def move_set_of_dragon_cards_to_freecells(tabletop):
     free = False
     dragon_in_freecell = 0
     freecell_index_list = []
-    
+
     # check if there are free freecells
     i = 0
     for cell in tabletop["freecell"]:
@@ -29,28 +30,29 @@ def move_set_of_dragon_cards_to_freecells(tabletop):
     for key, value in dragon_dict.items():
         freecell_D_index_list = []
         center_D_index_list = []
-    # check if there are dragon cards in free cells
+        # check if there are dragon cards in free cells
         i = 0
         for cell in tabletop["freecell"]:
             if cell == key:
                 freecell_D_index_list.append(i)
                 value += 1
-    
-    # check if there are dragon cards in center
+
+        # check if there are dragon cards in center
         i = 0
         for stack in tabletop["center"]:
             if (type(stack) is list) and (len(stack) > 0):
                 last_card = stack[-1]
-            else: last_card = stack
+            else:
+                last_card = stack
             if last_card == key:
                 center_D_index_list.append(i)
                 value += 1
-    
-    # check if there is a complete set of dragon cards
+
+        # check if there is a complete set of dragon cards
         if value == 4:
             if (dragon_in_freecell > 0) or free:
-    
-    # move them to freecells if possible
+
+                # move them to freecells if possible
                 for index in freecell_D_index_list:
                     # put None in each of the cells
                     tabletop["freecell"][index] = None
