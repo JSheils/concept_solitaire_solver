@@ -1,8 +1,9 @@
+from collections import defaultdict
 import random
 
 
 def build_deck():
-    deck = [
+    return [
         "R1",
         "R2",
         "R3",
@@ -42,10 +43,34 @@ def build_deck():
         "BD",
         "BD",
         "BD",
-        "F",
+        "FC",
     ]
-    return deck
 
 
 def shuffle_deck(deck):
     return random.sample(deck, len(deck))
+
+
+def deal_cards(deck):
+    tabletop = get_tabletop()
+    i = 0
+    while i < len(deck):
+        j = 0
+        while j < 8:
+            temp_list = tabletop["center"][j]
+            if type(temp_list) is not list:
+                temp_list = []
+            card = deck.pop(0)
+            temp_list.append(card)
+            tabletop["center"][j] = temp_list
+            j += 1
+        i += 1
+    return tabletop
+
+
+def get_tabletop():
+    tabletop = defaultdict(list)
+    tabletop["center"] = [[], [], [], [], [], [], [], []]
+    tabletop["freecell"] = [None, None, None, None]
+    tabletop["well"] = [None, None, None]
+    return tabletop

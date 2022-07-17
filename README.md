@@ -1,5 +1,7 @@
 # Concept Solitaire Solver
-Tool for determining the percentage of Concept Solitaire games that are solvable.
+Tool for determining the percentage of Concept Solitaire games that are solvable. Once complete, this application should be able to determine whether or not all possible random deals are solvable. Basically, I want to know if I am bad at solving some of these puzzles, or if, given the deal, I never had a chance.
+
+I am also using this as an exercise to improve my TDD technique.
 
 ## Operations
 * Build Deck
@@ -15,6 +17,18 @@ Tool for determining the percentage of Concept Solitaire games that are solvable
         * one free card
 * Shuffle Cards
 * Deal Cards
+    * Eight equal stacks (5 cards each)
+
+## Display Tools
+* Show Tabletop
+    * Display Free Cells
+    * Display Well
+    * Display Center (all eight stacks)
+
+## Automatic Actions
+* An exposed 1 will move to the well
+* An exposed complete set of Dragon cards will move to the Free Cells if there is a place available
+* When a card is exposed, it can be moved to the well, and all cards of other suits with a value one lower have already been moved to the well, it is moved to the well
 
 ## Solving Tools
 * Move Card to Card
