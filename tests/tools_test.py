@@ -1,5 +1,6 @@
-from src.tools import build_deck, shuffle_deck, deal_cards, get_tabletop
 from collections import Counter
+
+from src.tools import build_deck, deal_cards, get_tabletop, shuffle_deck
 
 
 def test_can_assert_true():

@@ -1,11 +1,12 @@
 from collections import defaultdict
+
 from src.automatic_actions import (
-    get_last_card_in_stack,
     check_for_free_card,
+    get_last_card_in_stack,
     move_set_of_dragon_cards_to_freecells,
 )
-from src.tools import build_deck, get_tabletop, shuffle_deck, deal_cards
 from src.solver import prep_game
+from src.tools import build_deck, deal_cards, get_tabletop, shuffle_deck
 
 
 def test_can_get_last_card_from_stack():
